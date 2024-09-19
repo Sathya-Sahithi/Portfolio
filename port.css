@@ -20,7 +20,7 @@ header h1 {
     margin: 0;
     letter-spacing: 2px;
     color:#66FCF1; 
-    text-shadow: 0 0 5px #66FCF1, 0 0 10px #66FCF1;
+    text-shadow: 0 0 10px #66FCF1;
 }
 
 header h2 {
@@ -47,7 +47,7 @@ nav ul {
 }
 
 nav ul li {
-    color:#66FCF1;
+    
     font-family: Georgia, 'Times New Roman', Times, serif;
     display: inline;
     margin: 0 10px;
@@ -55,12 +55,13 @@ nav ul li {
     border-radius: 3px;
     font-size: x-large;
     line-height: 60px;
-    text-shadow: 0 0 5px #66FCF1, 0 0 10px #66FCF1;
+    text-shadow: 0 0 15px #66FCF1;
 }
 
 nav ul li a {
     text-decoration: none;
     padding-inline-end: 50px;
+    color:#66FCF1;
 }
 
 section {
@@ -70,7 +71,7 @@ section {
 section h2 {
     color:cyan;
     text-align: center;
-    text-shadow: 0 0 5px #66FCF1, 0 0 10px #66FCF1;
+    text-shadow: 0 0 15px #66FCF1;
     letter-spacing: 2px;
 }
 
@@ -89,13 +90,18 @@ section h2 {
 
 /*About Me*/
 
+#About p{
+    text-align: justify;
+}
+
 .About {
     font-size: x-large;
     justify-content: space-around;
     display: flex;    
 }
 .About a{
-    color:rgb(182, 214, 108)
+    color:rgb(182, 214, 108);
+    text-decoration: none;
 }
 
 .About img {
@@ -104,6 +110,10 @@ section h2 {
 }
 
 /*Skills*/
+
+#Skills p{
+    text-align: justify;
+}
 
 .skills-container {
     display:flex;
@@ -115,6 +125,7 @@ section h2 {
 .skills-item {
     align-items: center;
     margin: 10px;
+    text-align: center;
 }
 
 .skills-item img {
@@ -126,37 +137,92 @@ section h2 {
 .skills-item a{
     margin: 5px;
     font-size: 16px;
-    color:#f4a2a2
+    color:#f4a2a2;
+    text-decoration: none;
 }
 
 /*Projects*/
 
-.Projects {
-    text-align: center;
-    display:flex;
-    justify-content: space-around;
+.slider{
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-left:100px;
+    padding-right:100px;
+    display:grid;
+    grid-auto-flow: column;
+    scroll-behavior: auto;
+    gap:2.5rem;
+    overflow-y:auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: 100px;    
+}
+.slider::-webkit-scrollbar{
+    display: none;
+}
+
+.card{
+    margin-top:50px;
+    margin-bottom:65px;
+    scroll-snap-align:start;
+    border-radius: 30px;
+    height: 300px;
+    width: 300px;
+    display: flex;
     align-items: center;
-   
+    justify-content: center;
+    transition: 0.3s ease-in-out;   
+}
+.card:hover {
+    transform: scale(1.2);  
+}
+ 
+.slide .info{
+    opacity: 0;
+    transform:translate(30px);
+    transition: 0.5s all;
+}
+.slide:hover .info{
+    opacity:1;
+    transform: translate(0px);
+} 
+
+.slide{
+    position: relative; 
+    display: inline-block;  
 }
 
-.Projects img {
-    border-radius: 10px;
-    border: 3px solid  #66eafc;
+.info {
+    position: absolute;
+    top: 18%; 
+    left: 0%; 
+    transform: translate(30%, 20%); 
+    color: white; 
+    background-color: rgba(4, 9, 39, 0.63);
+    padding: 10px;
+    text-align: center;
+}
+
+.info h2{
+    color:cyan;
+}
+
+.info p{
+    line-height: 1.5;
+    font-size:17px;
+}
+.info a{
+    color:black;
+    background-color: cyan;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.info a:hover{
     box-shadow: 0px 0px 5px cyan,
-    0px 0px 15px cyan
-}
-
-.Projects img:hover {
-    box-shadow: 0px 0px 5px cyan,
-    0px 0px 25px cyan,
-    0px 0px 50px cyan;
-}
-
-.Projects h3 {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color:aquamarine;
-    font-weight: bold;
-    
+    0px 0px 55px cyan,
+    0px 0px 100px cyan;
 }
 
 /*Contact*/
@@ -172,7 +238,8 @@ form {
     padding: 10px;
     border-radius: 10%;
     border-width: 3px;
-    max-width: 100%; 
+    width: 800px; 
+    margin-left:90px;
 }
 
 form label {
@@ -183,6 +250,19 @@ form label {
 form input {
     padding:8px;
     line-height: 15px;   
+}
+
+.reset{
+    background-color: #d38cc3;
+    border-radius: 10px;
+    border:none;
+    padding:10px;
+    margin-right:30px;
+}
+
+.reset:hover {
+    box-shadow: 0px 0px 5px #d38cc3,
+    0px 0px 55px #d38cc3;
 }
 
 button {
@@ -199,8 +279,7 @@ button {
 button:hover {
     box-shadow: 0px 0px 5px cyan,
     0px 0px 25px cyan,
-    0px 0px 50px cyan,
-    0px 0px 100px cyan;
+    0px 0px 50px cyan;
 }
 
 .Contact a{
